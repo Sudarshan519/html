@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+</head>
+<style>
+    div {
+        vertical-align: middle;
+    }
+
+    @keyframes changewidth {
+        from {
+            width: 1px;
+            height: 20px;
+            background: red;
+            visibility: hidden;
+            /* transition: width 2s, height 4s, border-radius 4s; */
+            /* transform: translateX(50%, 50%); */
+        }
+
+        to {
+            width: 10px;
+            height: 20px;
+            /* border-radius: 50%; */
+            visibility: visible;
+            border-radius: 50%;
+            transform: translate(20px, 0px);
+            /* transform: translateY(90px); */
+            /* transform: translate(50%, 50%); */
+            background: green;
+        }
+    }
+
+    .gola {
+        margin-top: 40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+
+        animation-duration: 1s;
+        animation-name: changewidth;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+
+
+    }
+
+    /* .gola {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s, height 4s, border-radius 4s;
+
+    }*/
+    /* 
+    .gola:hover {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: green;
+    } */
+
+    /* 
+    div {
+        background: url(http://lorempixel.com/100/100);
+        height: 100px;
+        width: 100px;
+
+        -webkit-animation: slide 2s linear infinite;
+        -moz-animation: slide 2s linear infinite;
+        animation: slide 2s linear infinite;
+    } */
+
+
+    @-webkit-keyframes slide {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 100px 0;
+        }
+    }
+
+    ​ @-moz-keyframes slide {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 100px 0;
+        }
+    }
+
+    @keyframes slide {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 100px 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="gola">
+        <div class="gola">
+            <div class="gola">
+                <div class="gola">
+                    <div class="gola"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="gola">
+            <div class="gola">
+                <div class="gola">
+                    <div class="gola">
+                        <div class="gola"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+
+    </div>
+    <!-- <div class="gola">
+        <div class="gola">
+            <div class="gola">
+                <div class="gola">
+                    <div class="gola"></div>
+                </div>
+            </div>
+        </div> -->
+
+
+</body>
+
+</html>
