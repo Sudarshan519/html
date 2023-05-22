@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .container,
+
+    .content {
+
+        margin: 0;
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+
+    }
+
+    .sidebar {
+        width: 10%;
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        background-color: rgb(16, 113, 199);
+        height: 100vh;
+        transition: 100ms;
+    }
+
+    .sidebar:hover {
+        width: 0;
+        display: inline;
+    }
+
+
+    .sidebar.active {
+        width: 2%;
+    }
+
+    .nav {
+        display: flex;
+        flex-grow: 4;
+        flex-wrap: nowrap;
+        background-color: aliceblue;
+
+        display: block;
+    }
+
+    .nav-item {
+        display: table-cell;
+        vertical-align: middle;
+
+        width: 80px;
+        text-align: center;
+
+        height: 80px;
+
+
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-size: large;
+        font-weight: 500;
+    }
+
+    a.active {
+        color: green;
+        padding: 10px;
+        background-color: aquamarine;
+        border-radius: 2px;
+        transition: 100ms;
+    }
+
+    a:hover {
+        background-color: red;
+        padding: 10px;
+    }
+
+    .menu {
+
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 10px;
+
+    }
+
+
+    .breads {
+        display: block;
+        width: 180px;
+        flex: 1;
+        height: 40px;
+        margin: 4px 5px;
+        padding: 0;
+        border-radius: 4px;
+        padding: 8px;
+        border: 2px 2px grey;
+        text-decoration-color: white;
+        /* background-color: antiquewhite; */
+
+    }
+
+    .breads.active {
+        color: red;
+        background-color: chartreuse;
+    }
+
+    .breads.active:hover {
+        color: red;
+        background-color: chartreuse;
+    }
+
+    .breads:hover {
+        background-color: grey;
+    }
+
+    .sidebar-title {
+        height: 200px;
+        padding-left: 20px;
+        width: max-content;
+        display: table-cell;
+        vertical-align: middle;
+
+    }
+
+    .sidebar-title:hover {
+        height: 0;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+
+        <div class="sidebar">
+
+            <div>
+                <div class="sidebar-title">
+                    Sidebar
+                </div>
+                <div class="breads active">Bread 1</div>
+                <div class="breads">Hello</div>
+                <div class="breads">Hello</div>
+                <div class="breads">Hello</div>
+                <div class="breads">Hello</div>
+            </div>
+        </div>
+        <nav class="nav">
+
+            <div class="nav-item" onclick="toggleMenu()" id="menu">
+                <div class="menu"></div>
+                <div class="menu"></div>
+                <div class="menu"></div>
+            </div>
+            <div class="nav-item"><a href="#home" id="homeTab" onclick="toggleHome()" class="home active">Home</a>
+            </div>
+            <div class="nav-item"><a href="#about" id="aboutTab" onclick="toggleAbout()" class="about">About</a>
+            </div>
+            <div class="nav-item"><a href="#contact" id="contactTab" onclick="toggleContact()"
+                    class="contact">Contact</a>
+            </div>
+
+        </nav>
+    </div>
+
+</body>
+
+</html>

@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Position Property</title>
     <style>
+        body {
+            margin: 0;
+        }
+
         .box-,
         .box {
             border-radius: 6px;
@@ -15,6 +19,7 @@
 
         .box-set {
             background: whitesmoke;
+
         }
 
         .box {
@@ -29,7 +34,7 @@
         }
 
         .box-1 {
-            width: 100%;
+            width: 70%;
             display: table;
             background-color: rgb(255, 252, 252);
 
@@ -37,11 +42,12 @@
             vertical-align: middle;
             margin: 0;
             height: 60px;
+
             /* box-shadow: -5px -5px blue, 5px 5px red, 15px 15px green; */
             /* */
             box-shadow: 10px 1px rgb(155, 148, 148) 0px -1px 1px rgb(155, 148, 148);
             position: sticky;
-            top: 10px;
+            top: 0px;
         }
 
         .box-2 {
@@ -50,10 +56,17 @@
             border-radius: 0;
             padding: 0;
             /* left: 10px; */
-            height: 95vh;
+            height: 100%;
             width: 190px;
             position: fixed;
-            z-index: 0;
+            z-index: 1;
+            visibility: visible;
+        }
+
+        .box.box-2.invisible {
+            visibility: hidden;
+
+
         }
 
         /* .box-3 {
@@ -66,11 +79,15 @@
 
         .box-3 {
             top: 0px;
-            margin-top: 80px;
+            flex-grow: 1;
+            /* margin-top: 80px; */
+            margin-bottom: 0;
             padding-left: 200px;
             text-align: justify;
 
         }
+
+
 
         .Row {
             display: block;
@@ -95,6 +112,7 @@
 
 
 
+
         .menu {
 
             width: 35px;
@@ -104,8 +122,37 @@
 
         }
 
-        footer {
+        /* footer {
             margin-top: 70%;
+        } */
+
+        footer {
+            width: 100%;
+            margin-left: 180px;
+            background: #ebeeef;
+            padding: 25px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0px;
+            z-index: 0;
+
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: large;
+            font-weight: 500;
+        }
+
+        a.active {
+            color: green;
+        }
+
+        footer a {
+            color: rgb(141, 136, 136);
+            text-decoration: none;
+            margin-right: 20px;
         }
 
         #home {
@@ -127,14 +174,17 @@
             <div class="row">
 
                 <div class="Row">
-                    <div class="Column">
+                    <div class="Column" onclick="toggleMenu()" id="menu">
                         <div class="menu"></div>
                         <div class="menu"></div>
                         <div class="menu"></div>
                     </div>
-                    <div class="Column"><a href="#home" class="btn">Home</a></div>
-                    <div class="Column"><a href="#about">About</a></div>
-                    <div class="Column"><a href="#contact">Contact</a></div>
+                    <div class="Column"><a href="#home" id="homeTab" onclick="toggleHome()" class="home active">Home</a>
+                    </div>
+                    <div class="Column"><a href="#about" id="aboutTab" onclick="toggleAbout()" class="about">About</a>
+                    </div>
+                    <div class="Column"><a href="#contact" id="contactTab" onclick="toggleContact()"
+                            class="contact">Contact</a></div>
                 </div>
             </div>
         </div>
@@ -486,12 +536,52 @@
             </p>
 
         </div>
+        <footer>
+
+            <div> @ Copyright 2022</div>
+            <br>
+            <div>
+                <a href="">
+                    <span> Privay Policy</span>
+                </a>
+                <a href=""><span>Terms of Service</span></a>
+
+            </div>
+        </footer>
     </div>
+
+
     <script>
         let boxelement = document.getElementById("box2")
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            boxelement.classList.toggle('invisible');
+
+        }
+        let homeelement = document.getElementById("homeTab");
+        let contact = document.getElementById("contactTab");
+        let about = document.getElementById("aboutTab");
+        function toggleHome() {
+            homeelement.classList.add('active');
+            about.classList.remove('active');
+            contact.classList.remove('active');
+            console.log(homeelement.classList);
+        }
+        function toggleAbout() {
+            homeelement.classList.remove('active');
+            about.classList.add('active');
+            contact.classList.remove('active');
+        }
+
+        function toggleContact() {
+            homeelement.classList.remove('active');
+            about.classList.remove('active');
+            contact.classList.add('active');
+        }
+
         var date = Date();
         // boxelement.innerHTML = "<h4> Hello </h4 >" + date;
-        setInterval(function () { boxelement.innerHTML = "<h4> Hello </h4 >" + Date() + "<footer>@ Copyright 2023</footer>" }, 1000);
+        setInterval(function () { boxelement.innerHTML = "<h4> Hello </h4 >" + Date() + "<div>@ Copyright 2023</div>" }, 1000);
         function toggleSidebar(params) {
 
             boxelement.toggleAttribute("box box-2")
